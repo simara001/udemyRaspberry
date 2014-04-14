@@ -31,3 +31,32 @@ This option allows you to change the amount of memory used by the CPU and the GP
 
 **Overclock**
 You now have the option of running the processor at speeds higher than 700MHz with this option. For your first time booting, leave the default settings or try Medium or Modest. You may want to return to this later (Turbo mode can run at 1000MHz).
+
+**SSH**
+This option turns on the Secure Shell (ssh) server, which will allow you to login to the Raspberry Pi remotely over a network. This is really handy, so you should turn it on.
+
+**Important commands**
+
+```bash
+$ sudo reboot
+$ sudo shutdown –h now #if you want to shutdown the computer 
+$ startx # if you want to open the UI
+```
+
+#### How to connect to your raspberry using *SSH*
+
+```bash
+$ ifconfig
+> inet addr:10.33.44.143 #search your ip
+$ ssh pi@10.33.44.143
+```
+
+#### Type and Version
+##### Extra info for the forums
+
+```bash
+$ cat /proc/version 
+$ cat /proc/cpuinfo
+```
+
+
