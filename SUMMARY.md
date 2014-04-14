@@ -3,8 +3,9 @@
 Add your chapters and articles in the following list:
 
 * [Summary](manual/summary.md)
-* [Prerequisites](manual/chapter1.md)
-* [Introduction to XCode (Really basic introduction)](manual/chapter2.md)
-* [How to use Buttons](manual/chapter3.md)
-* [Creating username/password functionality](manual/chapter4.md)
-* [Adding Gesture Recognizers (tap, swipe, pinch, etc)](manual/chapter5.md)
+* [Basic Configuration](manual/chapter1.md)
+* [GIT](manual/chapter2.md)
+* [Python](manual/chapter3.md)
+* [Cron Jobs](manual/chapter4.md)
+* [SQLite3](manual/chapter5.md)
+* [Have fun with your **Raspberry Pi**](manual/chapter6.md)
