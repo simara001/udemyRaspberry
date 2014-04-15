@@ -54,3 +54,15 @@ $ python test1.py
 ```
 
 You should see the `"hello world"` string on your terminal. In the next chapter we are going to create a **Cron Job** that is going to call the file `test1.py` every certain time. Keep on reading.
+
+
+#### Update your Repo
+
+Remember to back up your updates continuosly:
+
+```bash
+$ git init
+$ git add .
+$ git commit -m "Adding hello world in the test1.py file"
+$ git push
+```
