@@ -1,5 +1,7 @@
 #### Jokes
 
+A couple of things that you can do with the raspberry (and linux) are listed here. Enjoy!
+
 ```bash
 $ sudo apt-get install cowsay 
 $ cowsay –f tux "myName"

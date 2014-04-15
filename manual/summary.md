@@ -2,6 +2,8 @@
 
 The content of the course is going to be presented in this format:
 
++ Installing Raspbian
+	+ Installing Raspbian from Mac OS X
 + Basic Configuration
 	+ Default Configuration
 	+ SSH
