@@ -1,26 +1,52 @@
-## Gesture Recognizers
+### SQLite3
 
-In this lesson we will cover:
+Another important point is where are we going to storage the data we will receive from the Raspberry. There are a lot of options, and of course we will receive a service that we can consume (web server), so we can retrieve or post/get any information in the cloud. At this moment, we will introduce a lite database called SQLite3. The first time will be to check if it is already installed in your distribution.
 
-* How to add *Gesture Recognizers*
-* How to dismiss a keyboard on Tap
-* Testing different types of *Gesture Recognizers*
-
-#### How to add *Gesture Recognizers*
-
-The first thing to do is to open the Storyboard, open the *Utilities* panel, search for *gesture* and then simply drag and drop the element on the top of the view. After that is finished, open the *Assistant Editor* and control drag and drop from your *Gesture Recognizer* to the ViewController.h. Make sure that you are dragging the *gesture* to the *.h file and not into the *.m one. 
-
-Finally, instead of putting that *Gesture Recognizer* open the *Show Document Online* and then control drag and drop from your view to your *Gesture Recognizer*. Remember that you can see any associations to the elements on the Storyboard by selecting them and then selecting the *Connections Inspector* on the right panel (*Utilities*).
-
-#### How to dismiss a keyboard on Tap
-
-When the user selects a `UITextField`, it becomes the first responder. Apple's implementation states that it needs a keyboard, and so, the keyboard appears. When you want to dismiss the keyboard, your `UITextField` should `[myTextField resignFirstResponder]`. You can see the implementation of the code:
-
-```objective-c
-- (IBAction)tapWasRecognized:(id)sender {
-    [self.textUsername resignFirstResponder];
-    [self.textPassword resignFirstResponder];
-}
+```bash
+$ sqlite3 -–version
+> 3.7.13 2012-07-17 17:46:21 65035912264e3acbced5a3b 
 ```
 
-In this case we only have 2 `UITextField`, if we have a situation where you have multiple *text fields* you will need to find the first responder, and the resign to that privilege.
+If SQLite3 is not installed, run the next command:
+
+```bash
+$ sudo apt-get install sqlite3
+```
+
+#### Creating a DB
+
+The first step will be to create the schema of the DB, which basically means what columns (and their types we will have) and put some data in it. Let’s do that.
+
+```bash
+$ cd /home/pi/testDir/ 
+$ nano temperature.sql
+create table temp (temp int, timest varchar(12));
+insert into temp values (9, '2013-11-15 14:03:17');
+insert into temp values (8, '2013-11-16 14:03:17');
+insert into temp values (7, '2013-11-17 14:03:17'); 
+insert into temp values (7, '2013-11-18 14:03:17'); 
+insert into temp values (8, '2013-11-19 14:03:17'); 
+insert into temp values (9, '2013-11-20 14:03:17'); 
+insert into temp values (7, '2013-11-21 14:03:17'); 
+insert into temp values (8, '2013-11-22 14:03:17');
+```
+
+#The date should be a DateStamp field, but for this moment we will use a String.
+
+At this moment we haven’t populated or created any database. However, we can use the file that we just created to do that.
+
+```bash
+$ sqlite3 temperature.db < temperature.sql
+```
+
+Now that the DB is created, we are able to use sqlite3 to retrieve the information contained on the DB.
+Making queries to the DB
+
+```bash
+$ sqlite3 temperature.db 
+sqlite> .head on
+sqlite> .mode column 
+sqlite> select * from temp;
+```
+
+You can see the image of the process on the terminal.
